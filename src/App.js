@@ -7,6 +7,9 @@ function App() {
   const [result, setresult] = useState("")
   const evaluateExp = (e)=>{
     e.preventDefault()
+if(exp == ""){
+  alert("Enter Experssion")
+}
     setresult(eval(exp))
   }
   return (
