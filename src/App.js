@@ -1,9 +1,33 @@
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+
+  const [exp, setExp] = useState("")
+  const [result, setresult] = useState("")
+  const evaluateExp = (e)=>{
+    e.preventDefault()
+    setresult(eval(exp))
+  }
   return (
-    <div className="App">
+    <div className="app">
+     <div className='container'>
+      <h1 className='center'>Calculator</h1>
+      <form onSubmit={evaluateExp}>
+        <div>
+          <input type='text' placeholder='Enter the here' onChange={(e)=>{setExp(e.target.value)}}></input>
+        </div>
+
+        <div>
+          <button type='submit'>Calculate</button>
     
+        </div>
+      </form>
+
+      <div>
+        <h2>{result}</h2>
+      </div>
+     </div>
     </div>
   );
 }
